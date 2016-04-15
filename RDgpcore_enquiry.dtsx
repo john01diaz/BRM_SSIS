@@ -1,0 +1,2588 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/7/2016 1:13:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MFH-P-CRONUS"
+  DTS:CreatorName="NTBRCS.DOM\jdiaz"
+  DTS:DTSID="{6E0F1FBB-E3CD-42F7-9604-CFFBE886CBB1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="RDgpcore_enquiry"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B401A143-02B1-40A3-B6E8-6636A32A6238}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E288B6E2-3AFA-48AB-A994-975FD228A1B6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright 2011-2016 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2014.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity">gpcore_enquiry</property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2014.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="{D7240C7E-71EF-4FE4-99F8-1F23BBFB8A99}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output]"
+                  name="CRM Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdby]"
+                      name="createdby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdbyname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyname]"
+                      name="createdbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdbyyominame]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyyominame]"
+                      name="createdbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdon]"
+                      name="createdon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfby]"
+                      name="createdonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyname]"
+                      name="createdonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyyominame]"
+                      name="createdonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_area]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_area]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_area]"
+                      name="gpcore_area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_areaname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_areaname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_areaname]"
+                      name="gpcore_areaname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiary]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiary]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiary]"
+                      name="gpcore_beneficiary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiaryname]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryname]"
+                      name="gpcore_beneficiaryname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiaryyominame]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryyominame]"
+                      name="gpcore_beneficiaryyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequest]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_bookingrequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequest]"
+                      name="gpcore_bookingrequest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequestname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_bookingrequestname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequestname]"
+                      name="gpcore_bookingrequestname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_charterid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_charterid]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_charterid]"
+                      name="gpcore_charterid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethod]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_communicationmethod]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethod]"
+                      name="gpcore_communicationmethod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethodname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_communicationmethodname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethodname]"
+                      name="gpcore_communicationmethodname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_dateenquiryreceived]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_dateenquiryreceived]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_dateenquiryreceived]"
+                      name="gpcore_dateenquiryreceived"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirer]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirer]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirer]"
+                      name="gpcore_enquirer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirername]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirername]"
+                      name="gpcore_enquirername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquireryominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquireryominame]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquireryominame]"
+                      name="gpcore_enquireryominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisation]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisation]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisation]"
+                      name="gpcore_enquiringorganisation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisationname]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationname]"
+                      name="gpcore_enquiringorganisationname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisationyominame]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationyominame]"
+                      name="gpcore_enquiringorganisationyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiryid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryid]"
+                      name="gpcore_enquiryid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryreference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiryreference]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryreference]"
+                      name="gpcore_enquiryreference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysource]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysource]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysource]"
+                      name="gpcore_enquirysource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourcename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysourcename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourcename]"
+                      name="gpcore_enquirysourcename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourceother]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysourceother]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourceother]"
+                      name="gpcore_enquirysourceother"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedback]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_feedback]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedback]"
+                      name="gpcore_feedback"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedbackname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_feedbackname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedbackname]"
+                      name="gpcore_feedbackname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysource]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_iftenquirysource]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysource]"
+                      name="gpcore_iftenquirysource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysourcename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_iftenquirysourcename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysourcename]"
+                      name="gpcore_iftenquirysourcename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotification]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_incidentnotification]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotification]"
+                      name="gpcore_incidentnotification"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotificationname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_incidentnotificationname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotificationname]"
+                      name="gpcore_incidentnotificationname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_information]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_information]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_information]"
+                      name="gpcore_information"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationname]"
+                      name="gpcore_informationname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequest]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationrequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequest]"
+                      name="gpcore_informationrequest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequestname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationrequestname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequestname]"
+                      name="gpcore_informationrequestname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internal]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_internal]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internal]"
+                      name="gpcore_internal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internalname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_internalname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internalname]"
+                      name="gpcore_internalname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_name]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_name]"
+                      name="gpcore_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirer]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_newenquirer]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirer]"
+                      name="gpcore_newenquirer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_newenquirername]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirername]"
+                      name="gpcore_newenquirername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreachevent]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_outreachevent]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreachevent]"
+                      name="gpcore_outreachevent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreacheventname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_outreacheventname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreacheventname]"
+                      name="gpcore_outreacheventname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_overseasreference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_overseasreference]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_overseasreference]"
+                      name="gpcore_overseasreference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedby]"
+                      name="gpcore_receivedby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedbyname]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyname]"
+                      name="gpcore_receivedbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedbyyominame]"
+                      length="160"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyyominame]"
+                      name="gpcore_receivedbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referral]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_referral]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referral]"
+                      name="gpcore_referral"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referralname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_referralname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referralname]"
+                      name="gpcore_referralname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_service]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_service]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_service]"
+                      name="gpcore_service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicename]"
+                      name="gpcore_servicename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequest]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicerequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequest]"
+                      name="gpcore_servicerequest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequestname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicerequestname]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequestname]"
+                      name="gpcore_servicerequestname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subarea]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_subarea]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subarea]"
+                      name="gpcore_subarea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subareaname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_subareaname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subareaname]"
+                      name="gpcore_subareaname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactfirstname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactfirstname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactfirstname]"
+                      name="gpcore_updatecontactfirstname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlandline]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactlandline]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlandline]"
+                      name="gpcore_updatecontactlandline"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlastname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactlastname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlastname]"
+                      name="gpcore_updatecontactlastname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactmobilephone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactmobilephone]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactmobilephone]"
+                      name="gpcore_updatecontactmobilephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactotheremail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactotheremail]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactotheremail]"
+                      name="gpcore_updatecontactotheremail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactothertelephone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactothertelephone]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactothertelephone]"
+                      name="gpcore_updatecontactothertelephone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactprimaryemail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactprimaryemail]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactprimaryemail]"
+                      name="gpcore_updatecontactprimaryemail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[importsequencenumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[importsequencenumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[importsequencenumber]"
+                      name="importsequencenumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedby]"
+                      name="modifiedby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedbyname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyname]"
+                      name="modifiedbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedbyyominame]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyyominame]"
+                      name="modifiedbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedon]"
+                      name="modifiedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfby]"
+                      name="modifiedonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyname]"
+                      name="modifiedonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      name="modifiedonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[overriddencreatedon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[overriddencreatedon]"
+                      name="overriddencreatedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[ownerid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[ownerid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[ownerid]"
+                      name="ownerid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridname]"
+                      name="owneridname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridtype]"
+                      length="64"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridtype]"
+                      name="owneridtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridyominame]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridyominame]"
+                      name="owneridyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningbusinessunit]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningbusinessunit]"
+                      name="owningbusinessunit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningteam]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owningteam]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningteam]"
+                      name="owningteam"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owninguser]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owninguser]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owninguser]"
+                      name="owninguser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[processid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[processid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[processid]"
+                      name="processid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[stageid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[stageid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[stageid]"
+                      name="stageid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statecode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecode]"
+                      name="statecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statecodename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecodename]"
+                      name="statecodename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statuscode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscode]"
+                      name="statuscode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statuscodename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscodename]"
+                      name="statuscodename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[timezoneruleversionnumber]"
+                      name="timezoneruleversionnumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[traversedpath]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[traversedpath]"
+                      length="1250"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[traversedpath]"
+                      name="traversedpath"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[utcconversiontimezonecode]"
+                      name="utcconversiontimezonecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[versionnumber]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[versionnumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[versionnumber]"
+                      name="versionnumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_area]"
+                      dataType="guid"
+                      name="gpcore_area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_areaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_areaname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiary]"
+                      dataType="guid"
+                      name="gpcore_beneficiary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiaryname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_beneficiaryname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_beneficiaryyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_beneficiaryyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_bookingrequest]"
+                      dataType="bool"
+                      name="gpcore_bookingrequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_bookingrequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_bookingrequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_charterid]"
+                      dataType="wstr"
+                      length="20"
+                      name="gpcore_charterid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_communicationmethod]"
+                      dataType="i4"
+                      name="gpcore_communicationmethod" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_communicationmethodname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_communicationmethodname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_dateenquiryreceived]"
+                      dataType="dbTimeStamp"
+                      name="gpcore_dateenquiryreceived" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirer]"
+                      dataType="guid"
+                      name="gpcore_enquirer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirername]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquirername" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquireryominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquireryominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisation]"
+                      dataType="guid"
+                      name="gpcore_enquiringorganisation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisationname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquiringorganisationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiringorganisationyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquiringorganisationyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiryid]"
+                      dataType="guid"
+                      name="gpcore_enquiryid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquiryreference]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_enquiryreference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysource]"
+                      dataType="i4"
+                      name="gpcore_enquirysource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysourcename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_enquirysourcename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_enquirysourceother]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_enquirysourceother" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_feedback]"
+                      dataType="bool"
+                      name="gpcore_feedback" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_feedbackname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_feedbackname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_iftenquirysource]"
+                      dataType="i4"
+                      name="gpcore_iftenquirysource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_iftenquirysourcename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_iftenquirysourcename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_incidentnotification]"
+                      dataType="bool"
+                      name="gpcore_incidentnotification" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_incidentnotificationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_incidentnotificationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_information]"
+                      dataType="bool"
+                      name="gpcore_information" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_informationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationrequest]"
+                      dataType="bool"
+                      name="gpcore_informationrequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_informationrequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_informationrequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_internal]"
+                      dataType="bool"
+                      name="gpcore_internal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_internalname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_internalname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_newenquirer]"
+                      dataType="bool"
+                      name="gpcore_newenquirer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_newenquirername]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_newenquirername" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_outreachevent]"
+                      dataType="guid"
+                      name="gpcore_outreachevent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_outreacheventname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_outreacheventname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_overseasreference]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_overseasreference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedby]"
+                      dataType="guid"
+                      name="gpcore_receivedby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedbyname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_receivedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_receivedbyyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_receivedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_referral]"
+                      dataType="bool"
+                      name="gpcore_referral" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_referralname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_referralname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_service]"
+                      dataType="bool"
+                      name="gpcore_service" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_servicename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicerequest]"
+                      dataType="bool"
+                      name="gpcore_servicerequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_servicerequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_servicerequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_subarea]"
+                      dataType="guid"
+                      name="gpcore_subarea" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_subareaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_subareaname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactfirstname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactfirstname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactlandline]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactlandline" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactlastname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactlastname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactmobilephone]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactmobilephone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactotheremail]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactotheremail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactothertelephone]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactothertelephone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[gpcore_updatecontactprimaryemail]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactprimaryemail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridname]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owneridyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[owninguser]"
+                      dataType="guid"
+                      name="owninguser" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statecodename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[gpcore_enquiry]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{39B0245E-9ADD-40EB-8230-C28FF135D87D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[mfh-p-cronus.BRM_IFT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdby]"
+                      cachedDataType="guid"
+                      cachedName="createdby"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdby]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdbyname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="createdbyname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdbyyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="createdbyyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdbyyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdon]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdon"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdon]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdonbehalfby]"
+                      cachedDataType="guid"
+                      cachedName="createdonbehalfby"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfby]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdonbehalfbyname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="createdonbehalfbyname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[createdonbehalfbyyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="createdonbehalfbyyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[createdonbehalfbyyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_area]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_area"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_area]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_area]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_areaname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_areaname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_areaname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_areaname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_beneficiary]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_beneficiary"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiary]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_beneficiaryname]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_beneficiaryname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiaryname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_beneficiaryyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_beneficiaryyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiaryyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_beneficiaryyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_bookingrequest]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_bookingrequest"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_bookingrequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequest]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_bookingrequestname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_bookingrequestname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_bookingrequestname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_bookingrequestname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_charterid]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="gpcore_charterid"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_charterid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_charterid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_communicationmethod]"
+                      cachedDataType="i4"
+                      cachedName="gpcore_communicationmethod"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_communicationmethod]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethod]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_communicationmethodname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_communicationmethodname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_communicationmethodname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_communicationmethodname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_dateenquiryreceived]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="gpcore_dateenquiryreceived"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_dateenquiryreceived]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_dateenquiryreceived]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquirer]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_enquirer"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirer]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquirername]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_enquirername"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirername]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirername]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquireryominame]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_enquireryominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquireryominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquireryominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquiringorganisation]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_enquiringorganisation"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisation]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquiringorganisationname]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_enquiringorganisationname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisationname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquiringorganisationyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_enquiringorganisationyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisationyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiringorganisationyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquiryid]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_enquiryid"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiryid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquiryreference]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_enquiryreference"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiryreference]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquiryreference]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquirysource]"
+                      cachedDataType="i4"
+                      cachedName="gpcore_enquirysource"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysource]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysource]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquirysourcename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_enquirysourcename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysourcename]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourcename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_enquirysourceother]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_enquirysourceother"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysourceother]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_enquirysourceother]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_feedback]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_feedback"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_feedback]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedback]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_feedbackname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_feedbackname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_feedbackname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_feedbackname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_iftenquirysource]"
+                      cachedDataType="i4"
+                      cachedName="gpcore_iftenquirysource"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_iftenquirysource]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysource]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_iftenquirysourcename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_iftenquirysourcename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_iftenquirysourcename]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_iftenquirysourcename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_incidentnotification]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_incidentnotification"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_incidentnotification]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotification]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_incidentnotificationname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_incidentnotificationname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_incidentnotificationname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_incidentnotificationname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_information]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_information"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_information]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_information]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_informationname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_informationname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_informationrequest]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_informationrequest"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationrequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequest]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_informationrequestname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_informationrequestname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationrequestname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_informationrequestname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_internal]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_internal"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_internal]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internal]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_internalname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_internalname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_internalname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_internalname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_name]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_newenquirer]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_newenquirer"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_newenquirer]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_newenquirername]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_newenquirername"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_newenquirername]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_newenquirername]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_outreachevent]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_outreachevent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_outreachevent]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreachevent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_outreacheventname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_outreacheventname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_outreacheventname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_outreacheventname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_overseasreference]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_overseasreference"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_overseasreference]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_overseasreference]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_receivedby]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_receivedby"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedby]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_receivedbyname]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_receivedbyname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedbyname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_receivedbyyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="gpcore_receivedbyyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedbyyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_receivedbyyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_referral]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_referral"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_referral]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referral]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_referralname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_referralname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_referralname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_referralname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_service]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_service"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_service]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_service]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_servicename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_servicename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicename]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_servicerequest]"
+                      cachedDataType="bool"
+                      cachedName="gpcore_servicerequest"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicerequest]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequest]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_servicerequestname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gpcore_servicerequestname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicerequestname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_servicerequestname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_subarea]"
+                      cachedDataType="guid"
+                      cachedName="gpcore_subarea"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_subarea]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subarea]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_subareaname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_subareaname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_subareaname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_subareaname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactfirstname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactfirstname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactfirstname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactfirstname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactlandline]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactlandline"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactlandline]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlandline]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactlastname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactlastname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactlastname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactlastname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactmobilephone]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactmobilephone"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactmobilephone]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactmobilephone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactotheremail]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactotheremail"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactotheremail]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactotheremail]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactothertelephone]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactothertelephone"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactothertelephone]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactothertelephone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gpcore_updatecontactprimaryemail]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gpcore_updatecontactprimaryemail"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactprimaryemail]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[gpcore_updatecontactprimaryemail]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[importsequencenumber]"
+                      cachedDataType="i4"
+                      cachedName="importsequencenumber"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[importsequencenumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[importsequencenumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedby]"
+                      cachedDataType="guid"
+                      cachedName="modifiedby"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedby]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedbyname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="modifiedbyname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedbyyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="modifiedbyyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedbyyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedon]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="modifiedon"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedon]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfby]"
+                      cachedDataType="guid"
+                      cachedName="modifiedonbehalfby"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfby]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfbyname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="modifiedonbehalfbyname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfbyyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="modifiedonbehalfbyyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[modifiedonbehalfbyyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[overriddencreatedon]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="overriddencreatedon"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overriddencreatedon]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[overriddencreatedon]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="owneridname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridname]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridtype]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="owneridyominame"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridyominame]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owneridyominame]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningbusinessunit]"
+                      cachedDataType="guid"
+                      cachedName="owningbusinessunit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningbusinessunit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningteam]"
+                      cachedDataType="guid"
+                      cachedName="owningteam"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owningteam]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owninguser]"
+                      cachedDataType="guid"
+                      cachedName="owninguser"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[owninguser]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[processid]"
+                      cachedDataType="guid"
+                      cachedName="processid"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[processid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[processid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[stageid]"
+                      cachedDataType="guid"
+                      cachedName="stageid"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stageid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[stageid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statecode]"
+                      cachedDataType="i4"
+                      cachedName="statecode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statecodename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="statecodename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecodename]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statecodename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscode]"
+                      cachedDataType="i4"
+                      cachedName="statuscode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscodename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="statuscodename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[statuscodename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timezoneruleversionnumber]"
+                      cachedDataType="i4"
+                      cachedName="timezoneruleversionnumber"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezoneruleversionnumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[timezoneruleversionnumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[traversedpath]"
+                      cachedDataType="wstr"
+                      cachedLength="1250"
+                      cachedName="traversedpath"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traversedpath]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[traversedpath]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[utcconversiontimezonecode]"
+                      cachedDataType="i4"
+                      cachedName="utcconversiontimezonecode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[utcconversiontimezonecode]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[utcconversiontimezonecode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[versionnumber]"
+                      cachedDataType="i8"
+                      cachedName="versionnumber"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[versionnumber]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output].Columns[versionnumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_area]"
+                      dataType="guid"
+                      name="gpcore_area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_areaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_areaname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiary]"
+                      dataType="guid"
+                      name="gpcore_beneficiary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiaryname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_beneficiaryname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_beneficiaryyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_beneficiaryyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_bookingrequest]"
+                      dataType="bool"
+                      name="gpcore_bookingrequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_bookingrequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_bookingrequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_charterid]"
+                      dataType="wstr"
+                      length="20"
+                      name="gpcore_charterid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_communicationmethod]"
+                      dataType="i4"
+                      name="gpcore_communicationmethod" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_communicationmethodname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_communicationmethodname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_dateenquiryreceived]"
+                      dataType="dbTimeStamp"
+                      name="gpcore_dateenquiryreceived" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirer]"
+                      dataType="guid"
+                      name="gpcore_enquirer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirername]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquirername" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquireryominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquireryominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisation]"
+                      dataType="guid"
+                      name="gpcore_enquiringorganisation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisationname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquiringorganisationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiringorganisationyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_enquiringorganisationyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiryid]"
+                      dataType="guid"
+                      name="gpcore_enquiryid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquiryreference]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_enquiryreference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysource]"
+                      dataType="i4"
+                      name="gpcore_enquirysource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysourcename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_enquirysourcename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_enquirysourceother]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_enquirysourceother" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_feedback]"
+                      dataType="bool"
+                      name="gpcore_feedback" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_feedbackname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_feedbackname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_iftenquirysource]"
+                      dataType="i4"
+                      name="gpcore_iftenquirysource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_iftenquirysourcename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_iftenquirysourcename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_incidentnotification]"
+                      dataType="bool"
+                      name="gpcore_incidentnotification" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_incidentnotificationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_incidentnotificationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_information]"
+                      dataType="bool"
+                      name="gpcore_information" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_informationname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationrequest]"
+                      dataType="bool"
+                      name="gpcore_informationrequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_informationrequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_informationrequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_internal]"
+                      dataType="bool"
+                      name="gpcore_internal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_internalname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_internalname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_newenquirer]"
+                      dataType="bool"
+                      name="gpcore_newenquirer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_newenquirername]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_newenquirername" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_outreachevent]"
+                      dataType="guid"
+                      name="gpcore_outreachevent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_outreacheventname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_outreacheventname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_overseasreference]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_overseasreference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedby]"
+                      dataType="guid"
+                      name="gpcore_receivedby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedbyname]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_receivedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_receivedbyyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="gpcore_receivedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_referral]"
+                      dataType="bool"
+                      name="gpcore_referral" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_referralname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_referralname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_service]"
+                      dataType="bool"
+                      name="gpcore_service" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicename]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_servicename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicerequest]"
+                      dataType="bool"
+                      name="gpcore_servicerequest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_servicerequestname]"
+                      dataType="wstr"
+                      length="255"
+                      name="gpcore_servicerequestname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_subarea]"
+                      dataType="guid"
+                      name="gpcore_subarea" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_subareaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_subareaname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactfirstname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactfirstname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactlandline]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactlandline" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactlastname]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactlastname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactmobilephone]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactmobilephone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactotheremail]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactotheremail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactothertelephone]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactothertelephone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gpcore_updatecontactprimaryemail]"
+                      dataType="wstr"
+                      length="100"
+                      name="gpcore_updatecontactprimaryemail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridname]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                      dataType="guid"
+                      name="owninguser" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statecodename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[CRM Primary Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="CRM Primary Output"
+              startId="Package\Data Flow Task\Dynamics CRM Source.Outputs[CRM Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="93,57" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow Task\Dynamics CRM Source"
+          TopLeft="192,54" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="278,171" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[CRM Primary Output]"
+          TopLeft="284,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.5,75"
+              Start="0,0"
+              End="79.5,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="75.5,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75.5,37.5"
+                    Point2="79.5,37.5"
+                    Point3="79.5,41.5" />
+                  <mssgle:LineSegment
+                    End="79.5,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

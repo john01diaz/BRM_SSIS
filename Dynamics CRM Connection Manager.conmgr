@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Dynamics CRM Connection Manager"
+  DTS:DTSID="{D7240C7E-71EF-4FE4-99F8-1F23BBFB8A99}"
+  DTS:CreationName="DynamicsCRM">
+  <DTS:ObjectData>
+    <CrmConnectionManager
+      ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;DiscoveryServerUrl=https://disco.crm4.dynamics.com;UserName=kingswaybrm@brcsbrms.onmicrosoft.com;Domain=;OrganizationName=&quot;Generic BRMS IFT Data Staging&quot;;CrmServerUrl=https://brmsiftdata.api.crm4.dynamics.com;ProxyUsername=;ProxyServer=;ProxyServerPort=0;HomeRealmUri=;ServiceTimeout=120;RetryOnIntermittentErrors=True">
+      <Password
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJJgjk+/dREKKZgvQDfkzugAAAAACAAAAAAADZgAAwAAAABAAAADuURRh8jeRbcfq9VDjMd2CAAAAAASAAACgAAAAEAAAAKqWmUWDaWU+jTKJFP4Lo65YAAAAWSFbCSkBN/Ttodopxi4UNDnSZbvaXiKfa57UYYye/WNL/X5YM7jWFbbsqWgmVLlqVltV1dg5MpOSoG7Hk7so2+Ud0yetb6vFmKNY6VZAU/qpZ9EpmryI+xQAAACDDG7Vewub73ecy5Z2d3kfp5vVAQ==</Password>
+    </CrmConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
